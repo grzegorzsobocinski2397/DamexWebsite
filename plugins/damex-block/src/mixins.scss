@@ -1,0 +1,28 @@
+@mixin dots {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  .dot {
+    width: 24px;
+    height: 24px;
+    margin: 0 30px;
+    background-color: rgba(196, 196, 196, 0.6);
+    border-radius: 50%;
+    transition: background-color 250ms ease-in;
+    cursor: pointer;
+
+    &--active,
+    &:hover {
+      background-color: rgba(31, 31, 31, 0.7);
+    }
+  }
+}
+
+@mixin line {
+  width: 50px;
+  height: 5px;
+  min-height: 5px;
+  margin-bottom: 5px;
+  background-color: #C4C4C4;;
+}

@@ -1,0 +1,53 @@
+@import '../../mixins.scss';
+
+.wp-block-cgb-damex-offer-header-description {
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 50px;
+
+  .anchor {
+    position: relative;
+    top: -150px;
+    display: block;
+    visibility: hidden;
+  }
+
+  .texts {
+    display: flex;
+    padding: 0 10%;
+    margin-top: 50px;
+  }
+
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;;
+  }
+
+  .text-block__line {
+    @include line;
+  }
+
+  .text-block__title {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .text-block__description {
+    font-size: 1rem;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1024px) {
+  .wp-block-cgb-damex-offer-header-description {
+    .text-block__title {
+      font-size: 3rem;
+    }
+
+    .text-block__description {
+      font-size: 1.25rem;
+    }
+  }
+}

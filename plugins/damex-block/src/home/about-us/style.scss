@@ -1,0 +1,43 @@
+.wp-block-cgb-damex-about-us {
+  padding: 10% 10%;
+
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    height: 50%;;
+  }
+
+  .text-block__line {
+    width: 20px;
+    height: 5px;
+    min-height: 5px;
+    margin-bottom: 5px;
+    background-color: #C4C4C4;;
+  }
+
+  .text-block__title {
+    margin-top: unset;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .text-block__description {
+    font-size: 1.2rem;
+  }
+
+  @media only screen  and (min-width : 1224px) {
+    padding: 5% 10%;
+    .text-block__line {
+      width: 70px;
+    }
+
+    .text-block__title {
+      font-size: 3rem;
+    }
+
+    .text-block__description {
+      font-size: 1.8rem;
+    }
+  }
+}

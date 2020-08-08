@@ -1,0 +1,334 @@
+
+.wp-block-cgb-damex-home-gallery {
+  position: relative;
+  height: 60vh;
+  padding: 10% 0 ;
+  overflow: hidden;;
+
+  .images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+  }
+
+  .image {
+    position: absolute;
+    left: 18%;
+    width: 45vw;
+    height: auto;
+    margin: 0 40px;
+    box-shadow: 14px 14px 60px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 250ms ease-in;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 14px 14px 60px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .image--next {
+    right: -64%;
+    left: unset;
+    display: none;
+  }
+
+  .image--hidden {
+    display: none;
+  }
+
+  .texts {
+    display: flex;
+    width: 25%;
+    padding: 0 10%;
+    padding: unset;
+    padding-left: 10%;
+    margin-top: 50px;
+  }
+
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    width: unset;
+    height: unset;
+    margin-right: auto;;
+  }
+
+  .text-block__subtext {
+    text-transform: uppercase;
+  }
+
+  .text-block__description-box {
+    display: flex;
+  }
+
+  .text-block__line {
+    height: 5px;
+    min-width: 40px;
+    min-height: 5px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    background-color: #C4C4C4;;;
+  }
+
+  .text-block__title {
+    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .text-block__description {
+    font-size: 1.2rem;
+  }
+
+  .next-button,
+  .previous-button {
+    all: unset;
+    position: absolute;
+    bottom: calc(0% - 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    transition: background 250ms ease-in;
+    cursor: pointer;;
+
+    &:hover {
+      background: #F8F8F8;
+    }
+  }
+
+  .next-button {
+    right: 10%;
+  }
+
+  .previous-button {
+    right: 74%;
+  }
+
+  .counter {
+    position: absolute;
+    right: 17%;
+    bottom: -6%;
+    color: rgba(31, 31, 31, 0.8);
+  }
+}
+
+.normal-gallery {
+  display: flex;
+}
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) and (max-width : 1224px) {
+  .normal-gallery {
+    flex-direction: column;;
+  }
+
+  .wp-block-cgb-damex-home-gallery {
+    height: unset;
+    padding-bottom: unset;
+    ;
+    .texts {
+      width: 100%;
+      padding: 5%;
+      margin-top: unset;;;
+    }
+
+    .text-block__title {
+      font-size: 2rem;
+
+      margin-block-end: 20px;
+      margin-block-start: 20px;;
+    }
+
+    .text-block__line {
+      width: 10px;
+    }
+
+    .text-block__description {
+      width: 70%;
+      font-size: 1rem;
+    }
+
+    .counter {
+      right: 19%;
+      bottom: -11%;
+    }
+
+    .images {
+      width: 100%;
+      height: fit-content;
+      margin-bottom: 50px;
+    };
+
+    .image {
+      position: relative;
+      right: unset;
+      left: unset;
+      width: 90vw;
+      height: auto;
+      ;
+    }
+
+    .image--next,
+    .image--previous {
+      display: none;
+    }
+
+    .previous-button,
+    .next-button {
+      bottom: calc(0% - 30px);
+    }
+
+    .previous-button {
+      left: 2%;
+    }
+
+    .next-button {
+      right: 2%;
+    }
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+  .normal-gallery {
+    flex-direction: column;;
+  }
+
+  .wp-block-cgb-damex-home-gallery {
+    height: unset;
+    padding-bottom: unset;
+    ;
+    .texts {
+      width: 100%;
+      padding: 5%;
+      margin-top: unset;;;
+    }
+
+    .text-block__title {
+      font-size: 2rem;
+
+      margin-block-end: 20px;
+      margin-block-start: 20px;;
+    }
+
+    .text-block__line {
+      width: 10px;
+    }
+
+    .text-block__description {
+      width: 70%;
+      font-size: 1rem;
+    }
+
+    .counter {
+      right: 26%;
+      bottom: 8%;
+    }
+
+    .images {
+      width: 100%;
+      height: 60vh;
+    };
+
+    .image {
+      position: relative;
+      right: unset;
+      left: unset;
+      width: 90vw;
+      height: auto;
+      ;
+    }
+
+    .image--next,
+    .image--previous {
+      display: none;
+    }
+
+    .previous-button,
+    .next-button {
+      bottom: 12%;
+    }
+
+    .previous-button {
+      right: 78%;
+    }
+
+    .next-button {
+      right: 3%;
+    }
+  }
+}
+
+/* Ipads */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+  .wp-block-cgb-damex-home-gallery {
+    padding-top: 0;
+    padding-bottom: 10%;
+
+    .image {
+      left: 10%;
+      width: 90vw;
+      height: auto;
+    }
+
+    .next-button,
+    .previous-button {
+      bottom: -8%;
+    }
+
+    .counter {
+      right: 20%;
+      bottom: -10%;;
+    }
+
+    .next-button {
+      right: 11%;
+    }
+
+    .previous-button {
+      right: 82%;
+    }
+  }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+  .wp-block-cgb-damex-home-gallery {
+    .image {
+      left: 4%;
+      width: auto;
+      height: 42vh;
+    }
+
+    .next-button,
+    .previous-button {
+      bottom: 7%;
+    }
+
+    .previous-button {
+      right: 85%;
+    }
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+  .wp-block-cgb-damex-home-gallery {
+    flex-direction: row;
+
+
+    .image {
+      height: 60vh;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+
+.wp-block-columns {
+  padding: 5% 15%;
+}
+
+.wp-block-column {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.wp-block-cgb-damex-about-us-trait {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  margin: 20px 0;
+  text-align: center;
+  background: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+
+  i {
+    font-size: 3rem;
+  }
+
+  .about-us-trait__title {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .about-us-trait__description {
+    padding: 5px;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+}
+
+
+@media only screen  and (min-width : 1224px) {
+  .wp-block-cgb-damex-about-us-trait {
+    margin: unset;
+  }
+}
