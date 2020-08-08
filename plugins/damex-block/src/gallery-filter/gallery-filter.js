@@ -1,4 +1,3 @@
-import "./editor.scss";
 import "./style.scss";
 
 const { __ } = wp.i18n;
@@ -20,13 +19,14 @@ registerBlockType("cgb/damex-gallery-filter", {
 	 * Category of the block. Visible in edit mode.
 	 */
 	category: "common",
+	/**
+	 * Search phrases for Gutenberg editor.
+	 */
 	keywords: [__("Galeria"), __("Filtr")],
-	attributes: {
-		title: {
-			type: "string",
-			source: "text",
-		},
-	},
+	/**
+	 * Editable attributes by the user.
+	 */
+	attributes: {},
 
 	/**
 	 * Method that is called in Edit Mode.
