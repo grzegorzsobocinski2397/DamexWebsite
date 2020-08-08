@@ -1,0 +1,52 @@
+
+table,
+th,
+td {
+  font-size: 0.9rem;
+  border: 1px solid #DBDBDB;
+  border-collapse: collapse;
+  border-spacing: unset;
+}
+
+tr {
+  height: 50px;;
+}
+
+td {
+  padding: 5px;
+}
+
+tr:first-child {
+  font-weight: bold;;
+}
+
+
+tr:nth-child(even) {
+  background: #F5F5F5;
+}
+
+tr:nth-child(odd) {
+  background: #FFFFFF;
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+  table,
+  th,
+  td {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+  .wp-block-table {
+    padding: 0 5%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+  .wp-block-table {
+    padding: 0 10%;
+  }
+}
