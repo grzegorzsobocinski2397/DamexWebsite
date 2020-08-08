@@ -108,8 +108,9 @@ export class RedirectionService {
   private addButtonsRedirection() {
     const offerButton = document.querySelector(".wp-block-cgb-damex-about-us-summary button");
     const galleryButton = document.querySelector(".wp-block-cgb-damex-offer-common button");
+    const homeOfferButton = document.querySelector(".wp-block-cgb-block-damex-block button");
 
-    [offerButton, galleryButton]
+    [offerButton, galleryButton, homeOfferButton]
       .filter((button) => button !== null)
       .forEach((button) => this.addButtonRedirection(button));
   }
