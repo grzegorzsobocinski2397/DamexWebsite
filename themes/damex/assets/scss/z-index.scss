@@ -1,0 +1,13 @@
+$z-index: (
+  menu                : 20,
+  header              : 100,
+  overlay             : 150
+);
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
