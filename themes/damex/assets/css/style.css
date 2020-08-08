@@ -74,6 +74,17 @@ body {
   top: 47%;
   right: 10%;
 }
+.no-content-message__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 50px;
+  text-align: center;
+}
+.no-content-message__text {
+  font-size: 2rem;
+}
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 321px) {
   #content {
