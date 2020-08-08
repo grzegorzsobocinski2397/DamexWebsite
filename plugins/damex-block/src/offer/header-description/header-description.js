@@ -1,10 +1,11 @@
 import "./editor.scss";
 import "./style.scss";
+import { AttributesHelper } from "../../helpers/attributes-helper.js";
+import { COMMON_ATTRIBUTES } from "../../helpers/constants/common-attributes";
+import { InputBlockCreator } from "../../helpers/input-block-creator";
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-
-const { Button } = wp.components;
 /**
  * Register the Block Type so it can be seen by the user.
  */
@@ -21,7 +22,13 @@ registerBlockType("cgb/damex-offer-header-description", {
 	 * Category of the block. Visible in edit mode.
 	 */
 	category: "common",
+	/**
+	 * Search phrases for Gutenberg editor.
+	 */
 	keywords: [__("Oferta"), __("Cennik")],
+	/**
+	 * Editable attributes by the user.
+	 */
 	attributes: {
 		title: {
 			type: "string",
@@ -36,7 +43,7 @@ registerBlockType("cgb/damex-offer-header-description", {
 		anchor: {
 			type: "string",
 			source: "attribute",
-			attribute: 'id', 
+			attribute: "id",
 			selector: ".anchor",
 		},
 	},
@@ -45,82 +52,14 @@ registerBlockType("cgb/damex-offer-header-description", {
 	 * Method that is called in Edit Mode.
 	 */
 	edit: (props) => {
-		/**
-		 * Method invoked on every input change.
-		 */
-		function onChange(event) {
-			const attribute = event.target.name;
-			props.setAttributes({ [attribute]: event.target.value });
-		}
-
-		function onTitleRemove() {
-			props.setAttributes({ title: null });
-		}
-
-		function onAnchorRemove() {
-			props.setAttributes({ anchor: null });
-		}
-
-		function onDescriptionRemove() {
-			props.setAttributes({ description: null });
-		}
+		const attributesHelper = new AttributesHelper(props);
+		const inputBlockCreator = new InputBlockCreator();
+		const editableAttributes = [COMMON_ATTRIBUTES.TITLE, COMMON_ATTRIBUTES.DESCRIPTION, COMMON_ATTRIBUTES.ANCHOR];
 
 		return (
 			<div class="editor-block">
-				<h2>Header</h2>
-				{props.attributes.title ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony tytuł</b>
-						<span>{props.attributes.title}</span>
-						{props.isSelected ? (
-							<Button aria-label="Remove Title" onClick={onTitleRemove}>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Tytuł</label>
-						<input type="text" name="title" onChange={onChange} />
-					</div>
-				)}
-
-				{props.attributes.description ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony opis</b>
-						<span>{props.attributes.description}</span>
-						{props.isSelected ? (
-							<Button
-								aria-label="Remove Description"
-								onClick={onDescriptionRemove}
-							>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Opis</label>
-						<input type="text" name="description" onChange={onChange} />
-					</div>
-				)}
-
-{props.attributes.anchor ? (
-					<div class="editor-block">
-						<b>Link (menu) - może być pusty</b>
-						<span>{props.attributes.title}</span>
-						{props.isSelected ? (
-							<Button aria-label="Remove Link" onClick={onAnchorRemove}>
-								Usuń link
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Link</label>
-						<input type="text" name="anchor" onChange={onChange} />
-					</div>
-				)}
+				<h2>Nagłówek</h2>
+				{inputBlockCreator.createBlocks(props, editableAttributes, attributesHelper)}
 			</div>
 		);
 	},
@@ -133,7 +72,6 @@ registerBlockType("cgb/damex-offer-header-description", {
 
 		return (
 			<div class="wp-block-cgb-damex-offer-header-description">
-				
 				<a class="anchor" id={anchor ? anchor : null}></a>
 				<div class="texts">
 					<div class="text-block">
