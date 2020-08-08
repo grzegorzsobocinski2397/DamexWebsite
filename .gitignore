@@ -3,8 +3,10 @@
 /plugins/damex-block/node_modules
 /plugins/damex-block/dist
 /themes/damex/assets/src/dist
+/themes/damex/assets/css
 /themes/damex/assets/src/node_modules
-!/themes/damex
-!/plugins/damex-block
+!/themes/damex/
+!/plugins/damex-block/
+!/plugins/damex-block/src
 !/scripts
 !.gitignore
