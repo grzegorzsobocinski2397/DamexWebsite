@@ -17,7 +17,7 @@ export class AttributesHelper {
 	 * @param img Saved image that contains information about picture sizes, descriptions and sources.
 	 */
 	onFileSelect(img) {
-		this.props.setAttributes({ imgUrl: img.url, imgAlt: img.alt });
+		this.props.setAttributes({ imgUrl: img.url, imgAlt: img.alt, imgSrcSet: img.srcset });
 	}
 
 	/**
@@ -42,7 +42,7 @@ export class AttributesHelper {
 	 * Removes image from props.
 	 */
 	onImageDelete() {
-		this.props.setAttributes({ imgUrl: null, imgAlt: null });
+		this.props.setAttributes({ imgUrl: null, imgAlt: null, srcset: null });
 	}
 
 	/**
