@@ -1,38 +1,38 @@
 @import './colors.scss';
+@import './z-index.scss';
 $menu-item-border: 2px solid $font-default;
 
 #wpadminbar {
   display: none;
 }
 
+
+/* ============================================================ 
+    Header component.
+   ============================================================ */
 #header {
+  @include z-index(header);
   position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
-  z-index: 100;
   width: 100%;
-  height: 10vh;
-  min-height: 115px;
+  height: 50px;
   background-color: $white;
-  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
-  0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: $box-shadow;
 }
 
 .header__content {
   display: flex;
   align-items: center;
-  height: 68%;
+  height: 100%;
 }
 
+/* ============================================================ 
+    Top bar mail address and phone number.
+   ============================================================ */
 .header__top-bar {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  height: 10%;
-  padding: 10px;
-  font-size: 0.95rem;
-  background: $white;
-  border-bottom: 1px solid #D6D6D6;
+  display: none;
 }
 
 .top-bar__address {
@@ -48,18 +48,24 @@ $menu-item-border: 2px solid $font-default;
   padding-right: 7px;
 }
 
+/* ============================================================ 
+    Logo.
+   ============================================================ */
 .logo {
-  height: 85%;
+  height: 75%;
   padding-left: 20px;
   cursor: pointer;
 }
 
+/* ============================================================ 
+    Header menus.
+   ============================================================ */
 #header .menu {
-  display: flex;
+  display: none;
   flex: 1;
   justify-content: flex-end;
   height: 100%;
-  padding-right: 20px;
+  padding-right: unset;
   list-style: none;
 }
 
@@ -85,7 +91,6 @@ $menu-item-border: 2px solid $font-default;
     transition: all 0.5s;
   }
 }
-
 
 .sub-menu--long {
   left: unset;
@@ -119,11 +124,15 @@ $menu-item-border: 2px solid $font-default;
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  & span {
-    padding: 5px;
-  }
 }
 
+.sub-menu-link__block span {
+  padding: 5px;
+}
+
+/* ============================================================ 
+    Dropdown items.
+   ============================================================ */
 .block__header {
   font-size: 1.15rem;
   font-weight: bold;
@@ -132,14 +141,17 @@ $menu-item-border: 2px solid $font-default;
 .block__content {
   display: flex;
   padding-left: 6px;
-
-  i {
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-  }
 }
 
+.block__content i {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+/* ============================================================ 
+    Menu link and hover effect.
+   ============================================================ */
 .menu-link {
   position: relative;
   display: flex;
@@ -203,19 +215,35 @@ $menu-item-border: 2px solid $font-default;
   }
 }
 
+/* ============================================================ 
+    Hamburger icon.
+   ============================================================ */
 #hamburger {
-  display: none;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  padding-top: 5px;
+  padding-right: 10%;
+  cursor: pointer;
 }
 
+#hamburger button {
+  all: unset;
+}
+
+/* ============================================================ 
+    Mobile menu.
+   ============================================================ */
 .menu-overlay {
+  @include z-index(menu);
   position: fixed;
   display: flex;
   flex-direction: column;
-  z-index: 20;
   width: 100%;
   height: calc(100% - 45px);
   padding-top: 50px;
-  background-color: #FFFFFF;
+  background-color: $white;
 
   .menu,
   .sub-menu--long {
@@ -301,50 +329,15 @@ $menu-item-border: 2px solid $font-default;
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width: 1024px) {
-  #header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 5vh;
-    min-height: 50px;
-  }
-
   .header--edit-mode {
-    z-index: 100;
+    @include z-index(header);
     box-shadow: unset;
   }
 
-  #hamburger {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
-    padding-top: 5px;
-    padding-right: 10%;
-    cursor: pointer;
 
-    button {
-      all: unset;
-    }
-  }
-
-  .header__top-bar {
-    display: none;
-  }
-
-  .header .menu {
-    display: none;
-    padding-right: unset;
-  }
-
-  .header__content {
-    height: 100%;
-
-    .logo {
-      height: 75%;
-    }
-  }
-
+  /* ============================================================ 
+    Mobile menu.
+   ============================================================ */
   .menu-overlay {
     padding-top: 50px;
 
@@ -363,50 +356,6 @@ $menu-item-border: 2px solid $font-default;
   }
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-  #header {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    height: 5vh;
-    min-height: 50px;
-    box-shadow: unset;
-  }
-
-  #hamburger {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
-    padding-top: 5px;
-    padding-right: 10%;
-    cursor: pointer;
-
-    button {
-      all: unset;
-    }
-  }
-
-  .header__top-bar {
-    display: none;
-  }
-
-  .header .menu {
-    display: none;
-    padding-right: unset;
-  }
-
-  .header__content {
-    height: 100%;
-
-    .logo {
-      height: 75%;
-    }
-  }
-}
-
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
   #header .menu {
     padding-right: unset;
@@ -419,51 +368,85 @@ $menu-item-border: 2px solid $font-default;
 
   .menu-link a {
     font-size: 1rem;
-  }
 
-  .menu-link > a:hover::before {
-    bottom: 25px;
-    left: 5px;
-  }
+    &:hover::before {
+      bottom: 25px;
+      left: 5px;
+    }
 
-  .menu-link > a:hover::after {
-    top: 25px;
-    right: 5px;
-  }
+    a:hover::after {
+      top: 25px;
+      right: 5px;
+    }
 
+    a::before {
+      bottom: 30px;
+      left: 0;
+    }
 
-  .menu-link > a::before {
-    bottom: 30px;
-    left: 0;
-  }
-
-  .menu-link > a::after {
-    top: 30px;
-    right: -0;
+    a::after {
+      top: 30px;
+      right: -0;
+    }
   }
 }
 
-/* Desktops and laptops ----------- */
+/* ============================================================ 
+    Desktops.
+   ============================================================ */
 @media only screen  and (min-width : 1224px) {
-  .menu-link > a:hover::before {
-    bottom: 10px;
-    left: 5px;
+  #header {
+    height: 115px;
   }
 
-  .menu-link > a:hover::after {
-    top: 10px;
-    right: 5px;
+  #header .menu {
+    display: flex;
+    padding-right: 20px;
   }
 
-
-  .menu-link > a::before {
-    bottom: 15px;
-    left: 0;
+  .header__content {
+    height: 85px;
   }
 
-  .menu-link > a::after {
-    top: 15px;
-    right: -0;
+  .logo {
+    height: 85%;
+  }
+
+  .header__top-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 10%;
+    padding: 10px;
+    font-size: 0.95rem;
+    background: $white;
+    border-bottom: 1px solid #D6D6D6;
+  }
+
+  .menu-link a {
+    &:hover::before {
+      bottom: 10px;
+      left: 5px;
+    }
+
+    &:hover::after {
+      top: 10px;
+      right: 5px;
+    }
+
+    &::before {
+      bottom: 15px;
+      left: 0;
+    }
+
+    &::after {
+      top: 15px;
+      right: -0;
+    }
+  }
+
+  #hamburger {
+    display: none;
   }
 }
 

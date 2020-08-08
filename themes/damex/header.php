@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="Description" content="Lakierowanie tworzyw, lakierowanie mebli, efekty specjalne. Lakier, kolory oraz efekty. Kraków.">
-
-    <!-- Stylesheets
-	============================================= -->
+    <meta name="Description"
+        content="Lakierowanie tworzyw, lakierowanie mebli, efekty specjalne. Lakier, kolory oraz efekty. Kraków.">
 
     <?php wp_head(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,13 +16,7 @@
 </head>
 
 <body <?php body_class("stretched no-transition"); ?>>
-
-    <!-- Document Wrapper
-  ============================================= -->
     <div id="wrapper" class="clearfix">
-
-        <!-- TOP BAR 
-  ============================================= -->
 
 
         <header id="header">
@@ -106,4 +98,4 @@ wp_nav_menu([
 
 
 
-        </header><!-- #header end -->
+        </header>
