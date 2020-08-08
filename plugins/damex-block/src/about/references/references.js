@@ -1,10 +1,11 @@
-import "./editor.scss";
 import "./style.scss";
+import { ImagesBlockCreator } from "../../helpers/images-block-creator";
+import { AttributesHelper } from "../../helpers/attributes-helper.js";
+import { COMMON_ATTRIBUTES } from "../../helpers/constants/common-attributes";
+import { InputBlockCreator } from "../../helpers/input-block-creator";
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload } = wp.blockEditor;
-const { Button } = wp.components;
 
 /**
  * Register the Block Type so it can be seen by the user.
@@ -22,7 +23,11 @@ registerBlockType("cgb/damex-about-us-references", {
 	 * Category of the block. Visible in edit mode.
 	 */
 	category: "common",
+
 	keywords: [__("O nas"), __("Referencje")],
+	/**
+	 * Editable attributes by the user.
+	 */
 	attributes: {
 		title: {
 			type: "string",
@@ -43,104 +48,16 @@ registerBlockType("cgb/damex-about-us-references", {
 	 * Method that is called in Edit Mode.
 	 */
 	edit: (props) => {
-		/**
-		 * Method invoked on every input change.
-		 */
-		function onChange(event) {
-			const attribute = event.target.name;
-			props.setAttributes({ [attribute]: event.target.value });
-		}
-
-		/**
-		 * Method invoked after image selection.
-		 */
-		function onFileSelect(images) {
-			const mappedImages = images.map((image) => {
-				return { imgUrl: image.url, imgAlt: image.alt };
-			});
-			props.setAttributes({ images: mappedImages });
-		}
-
-		/**
-		 * Method invoked after removing every image.
-		 */
-		function onImageDelete() {
-			props.setAttributes({ images: null });
-		}
-
-		function onTitleRemove() {
-			props.setAttributes({ title: null });
-		}
-
-		function onDescriptionRemove() {
-			props.setAttributes({ description: null });
-		}
+		const attributesHelper = new AttributesHelper(props);
+		const imagesBlockCreator = new ImagesBlockCreator();
+		const inputBlockCreator = new InputBlockCreator();
+		const editableAttributes = [COMMON_ATTRIBUTES.TITLE, COMMON_ATTRIBUTES.DESCRIPTION];
 
 		return (
 			<div class="editor-block">
 				<h2>O nas - Referencje (#2)</h2>
-				{props.attributes.title ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony tytuł</b>
-						<span>{props.attributes.title}</span>
-						{props.isSelected ? (
-							<Button aria-label="Remove Title" onClick={onTitleRemove}>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Tytuł</label>
-						<input type="text" name="title" onChange={onChange} />
-					</div>
-				)}
-
-				{props.attributes.description ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony opis</b>
-						<span>{props.attributes.description}</span>
-						{props.isSelected ? (
-							<Button
-								aria-label="Remove Description"
-								onClick={onDescriptionRemove}
-							>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Opis</label>
-						<input type="text" name="description" onChange={onChange} />
-					</div>
-				)}
-
-				<div className="media-wrapper">
-					{props.attributes.images ? (
-						<div>
-							{props.attributes.images.map((image) => {
-								return <img src={image.imgUrl} alt={image.imgAlt} />;
-							})}
-							{props.isSelected ? (
-								<Button aria-label="Remove Image" onClick={onImageDelete}>
-									Remove
-								</Button>
-							) : null}
-						</div>
-					) : (
-						<MediaUpload
-							multiple={true}
-							onSelect={onFileSelect}
-							value={1}
-							render={({ open }) => (
-								<Button aria-label="Open Gallery" onClick={open}>
-									Open Library
-								</Button>
-							)}
-						/>
-					)}
-				</div>
+				{inputBlockCreator.createBlocks(props, editableAttributes, attributesHelper)}
+				{imagesBlockCreator.createBlocks(props, attributesHelper)}
 			</div>
 		);
 	},
@@ -169,30 +86,13 @@ registerBlockType("cgb/damex-about-us-references", {
 			}
 			const middleElementIndex = Math.floor(images.length / 2);
 			return images.map((image, index) => {
-				const normalImage = (
-					<img data-id={index} src={image.imgUrl} class="image" />
-				);
-				const hiddenImage = (
-					<img data-id={index} src={image.imgUrl} class="image image--hidden" />
-				);
-				const nextImage = (
-					<img
-						data-id={index}
-						src={image.imgUrl}
-						class="image image--small image--next"
-					/>
-				);
-				const previousImage = (
-					<img
-						data-id={index}
-						src={image.imgUrl}
-						class="image image--small image--previous"
-					/>
-				);
+				const normalImage = <img data-id={index} src={image.imgUrl} class="image" />;
+				const hiddenImage = <img data-id={index} src={image.imgUrl} class="image image--hidden" />;
+				const nextImage = <img data-id={index} src={image.imgUrl} class="image image--small image--next" />;
+				const previousImage = <img data-id={index} src={image.imgUrl} class="image image--small image--previous" />;
 
 				const isPictureActive = index === middleElementIndex;
-				const isPictureAfterOrBeforeActive =
-					index === middleElementIndex - 1 || index === middleElementIndex + 1;
+				const isPictureAfterOrBeforeActive = index === middleElementIndex - 1 || index === middleElementIndex + 1;
 
 				if (isPictureActive) {
 					return normalImage;
@@ -207,10 +107,7 @@ registerBlockType("cgb/damex-about-us-references", {
 		}
 
 		return (
-			<div
-				className="dot-gallery"
-				class="dot-gallery wp-block-cgb-damex-about-us-references"
-			>
+			<div className="dot-gallery" class="dot-gallery wp-block-cgb-damex-about-us-references">
 				<a class="anchor" id="referencje"></a>
 				<div class="images">{renderPictures()}</div>
 				<div class="dots">{renderDots()}</div>

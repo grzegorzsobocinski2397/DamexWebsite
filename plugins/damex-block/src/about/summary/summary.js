@@ -1,10 +1,12 @@
-import "./editor.scss";
+
 import "./style.scss";
+import { ImageBlockCreator } from "../../helpers/image-block-creator";
+import { AttributesHelper } from "../../helpers/attributes-helper.js";
+import { COMMON_ATTRIBUTES } from "../../helpers/constants/common-attributes";
+import { InputBlockCreator } from "../../helpers/input-block-creator";
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { MediaUpload } = wp.blockEditor;
-const { Button } = wp.components;
 
 /**
  * Register the Block Type so it can be seen by the user.
@@ -22,7 +24,13 @@ registerBlockType("cgb/damex-about-us-summary", {
 	 * Category of the block. Visible in edit mode.
 	 */
 	category: "common",
+			/**
+	 * Search phrases for Gutenberg editor.
+	 */
 	keywords: [__("O nas"), __("Podsumowanie")],
+			/**
+	 * Editable attributes by the user.
+	 */
 	attributes: {
 		title: {
 			type: "string",
@@ -34,7 +42,7 @@ registerBlockType("cgb/damex-about-us-summary", {
 			source: "text",
 			selector: ".text-block__description",
 		},
-		url: {
+		imgUrl: {
 			type: "string",
 			source: "attribute",
 			selector: "img",
@@ -50,117 +58,16 @@ registerBlockType("cgb/damex-about-us-summary", {
 	 * Method that is called in Edit Mode.
 	 */
 	edit: (props) => {
-		/**
-		 * Method invoked on every input change.
-		 */
-		function onChange(event) {
-			const attribute = event.target.name;
-			props.setAttributes({ [attribute]: event.target.value });
-		}
-		/**
-		 * Method invoked after image selection.
-		 */
-		function onFileSelect(img) {
-			props.setAttributes({ url: img.url });
-		}
-
-		/**
-		 * Method invoked after removing every image.
-		 */
-		function onImageDelete() {
-			props.setAttributes({ url: null });
-		}
-
-		function onTitleRemove() {
-			props.setAttributes({ title: null });
-		}
-
-		function onDescriptionRemove() {
-			props.setAttributes({ description: null });
-		}
+		const attributesHelper = new AttributesHelper(props);
+		const imageBlockCreator = new ImageBlockCreator();
+		const inputBlockCreator = new InputBlockCreator();
+		const editableAttributes = [COMMON_ATTRIBUTES.TITLE, COMMON_ATTRIBUTES.DESCRIPTION, COMMON_ATTRIBUTES.OFFER_REDIRECTION];
 
 		return (
 			<div class="editor-block">
 				<h2>O nas - Podsumowanie (#1)</h2>
-				{props.attributes.title ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony tytuł</b>
-						<span>{props.attributes.title}</span>
-						{props.isSelected ? (
-							<Button aria-label="Remove Title" onClick={onTitleRemove}>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Tytuł</label>
-						<input type="text" name="title" onChange={onChange} />
-					</div>
-				)}
-
-				{props.attributes.description ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony opis</b>
-						<span>{props.attributes.description}</span>
-						{props.isSelected ? (
-							<Button
-								aria-label="Remove Description"
-								onClick={onDescriptionRemove}
-							>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Opis</label>
-						<input type="text" name="description" onChange={onChange} />
-					</div>
-				)}
-
-				{props.attributes.offerRedirection ? (
-					<div class="editor-block">
-						<b>Aktualnie ustawiony link na przycisku Oferta</b>
-						<span>{props.attributes.offerRedirection}</span>
-						{props.isSelected ? (
-							<Button
-								aria-label="Remove offer redirection"
-								onClick={onTitleRemove}
-							>
-								Usuń
-							</Button>
-						) : null}
-					</div>
-				) : (
-					<div class="editor-block">
-						<label>Aktualnie ustawiony link na przycisku Oferta</label>
-						<input type="text" name="offerRedirection" onChange={onChange} />
-					</div>
-				)}
-
-				<div className="media-wrapper">
-					{props.attributes.url ? (
-						<div>
-							<img src={props.attributes.url} />
-							{props.isSelected ? (
-								<Button aria-label="Remove Image" onClick={onImageDelete}>
-									Remove
-								</Button>
-							) : null}
-						</div>
-					) : (
-						<MediaUpload
-							onSelect={onFileSelect}
-							value={1}
-							render={({ open }) => (
-								<Button aria-label="Open Gallery" onClick={open}>
-									Open Library
-								</Button>
-							)}
-						/>
-					)}
-				</div>
+				{inputBlockCreator.createBlocks(props, editableAttributes, attributesHelper)}
+				{imageBlockCreator.createBlock(props, attributesHelper)}
 			</div>
 		);
 	},
@@ -169,7 +76,7 @@ registerBlockType("cgb/damex-about-us-summary", {
 	 * The output of the user changes.
 	 */
 	save: (props) => {
-		const { url, title, description, offerRedirection } = props.attributes;
+		const { imgUrl, title, description, offerRedirection } = props.attributes;
 
 		return (
 			<div class="wp-block-cgb-damex-about-us-summary">
@@ -182,7 +89,7 @@ registerBlockType("cgb/damex-about-us-summary", {
 					</div>
 				</div>
 				<div class="image-container">
-					<img src={url}></img>
+					<img src={imgUrl}></img>
 					<button href={offerRedirection} aria-label="Przejdź do oferty">
 						<span>Oferta</span>
 						<i class="fa fa-arrow-right"></i>

@@ -22,7 +22,13 @@ registerBlockType("cgb/damex-about-us-partners", {
 	 * Category of the block. Visible in edit mode.
 	 */
 	category: "common",
+			/**
+	 * Search phrases for Gutenberg editor.
+	 */
 	keywords: [__("O nas"), __("Partnerzy")],
+			/**
+	 * Editable attributes by the user.
+	 */
 	attributes: {
 		blocks: {
 			type: "array",
@@ -48,7 +54,7 @@ registerBlockType("cgb/damex-about-us-partners", {
 		/**
 		 * Method invoked after image selection.
 		 */
-		function onFileSelect(images) {
+		function onFilesSelect(images) {
 			const blocks = images.map((image) => {
 				return { link: "", url: image.url };
 			});
@@ -96,7 +102,7 @@ registerBlockType("cgb/damex-about-us-partners", {
 					) : (
 						<MediaUpload
 							multiple={true}
-							onSelect={onFileSelect}
+							onSelect={onFilesSelect}
 							value={1}
 							render={({ open }) => (
 								<Button aria-label="Open Gallery" onClick={open}>
