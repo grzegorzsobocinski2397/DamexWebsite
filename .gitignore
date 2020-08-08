@@ -6,4 +6,5 @@
 /themes/damex/assets/src/node_modules
 !/themes/damex
 !/plugins/damex-block
+!/scripts
 !.gitignore
