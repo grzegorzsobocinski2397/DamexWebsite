@@ -7,18 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="Description" content="Damex Lakiernia - lakierowanie tworzyw,
-     lakierowanie mebli, efekty specjalne. Lakiernia wysokich standardów.">
+    <meta name="Description" content="Lakierowanie tworzyw, lakierowanie mebli, efekty specjalne. Lakier, kolory oraz efekty. Kraków.">
 
     <!-- Stylesheets
 	============================================= -->
 
     <?php wp_head(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Document Title
-	============================================= -->
-    <title>Index Template</title>
 
 </head>
 
@@ -32,7 +27,7 @@
   ============================================= -->
 
 
-        <header id="header" class="header">
+        <header id="header">
             <div class="header__top-bar">
                 <span class="top-bar__address"><i
                         class="far fa-envelope top-bar__icon"></i><?php echo get_option('mail_address'); ?></span>

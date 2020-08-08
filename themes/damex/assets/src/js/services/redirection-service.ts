@@ -99,7 +99,7 @@ export class RedirectionService {
    * Redirect user on logo click.
    */
   private addLogoRedirection() {
-    document.querySelector(".header img").addEventListener("click", () => (window.location.href = "/"));
+    document.querySelector("#header img").addEventListener("click", () => (window.location.href = "/"));
   }
 
   /**

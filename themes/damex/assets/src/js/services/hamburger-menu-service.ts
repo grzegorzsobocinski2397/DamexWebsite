@@ -32,7 +32,7 @@ export class HamburgerMenuService {
    */
   private closeMenu() {
     const overlay = document.querySelector(".menu-overlay");
-    document.querySelector(".header").classList.remove("header--edit-mode")
+    document.querySelector("#header").classList.remove("header--edit-mode")
     overlay.remove();
   }
 
@@ -40,7 +40,7 @@ export class HamburgerMenuService {
    * Create new element which overtakes an entire screen.
    */
   private createMenu() {
-    document.querySelector(".header").classList.add("header--edit-mode")
+    document.querySelector("#header").classList.add("header--edit-mode")
     const overlay = document.createElement("div");
     overlay.classList.add("menu-overlay");
 

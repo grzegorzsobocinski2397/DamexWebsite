@@ -1,11 +1,11 @@
 @import './colors.scss';
 $menu-item-border: 2px solid $font-default;
 
-// #wpadminbar {
-//   display: none;
-// }
+#wpadminbar {
+  display: none;
+}
 
-.header {
+#header {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@ $menu-item-border: 2px solid $font-default;
   cursor: pointer;
 }
 
-.header .menu {
+#header .menu {
   display: flex;
   flex: 1;
   justify-content: flex-end;
@@ -301,7 +301,7 @@ $menu-item-border: 2px solid $font-default;
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width: 1024px) {
-  .header {
+  #header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -365,7 +365,7 @@ $menu-item-border: 2px solid $font-default;
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-  .header {
+  #header {
     position: fixed;
     top: 0;
     z-index: 100;
@@ -408,7 +408,7 @@ $menu-item-border: 2px solid $font-default;
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-  .header .menu {
+  #header .menu {
     padding-right: unset;
   }
 
