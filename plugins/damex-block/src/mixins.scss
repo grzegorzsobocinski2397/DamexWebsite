@@ -26,3 +26,16 @@
   margin-bottom: 5px;
   background-color: #C4C4C4;;
 }
+
+@mixin title {
+  margin-bottom: 40px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@mixin anchor($top) {
+  position: relative;
+  top: $top;
+  display: block;
+  visibility: hidden;
+}
