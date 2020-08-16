@@ -107,7 +107,7 @@ registerBlockType("cgb/damex-about-us-references", {
 		}
 
 		return (
-			<div className="dot-gallery" class="dot-gallery wp-block-cgb-damex-about-us-references">
+			<div className="dot-gallery">
 				<a class="anchor" id="referencje"></a>
 				<div class="images">{renderPictures()}</div>
 				<div class="dots">{renderDots()}</div>
