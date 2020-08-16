@@ -1,31 +1,39 @@
 
+@import '../../mixins.scss';
+
 .wp-block-cgb-damex-home-gallery {
   position: relative;
-  height: 60vh;
-  padding: 10% 0 ;
-  overflow: hidden;;
+  flex-direction: column;
+  overflow: hidden;
 
   .images {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75%;
+    width: 100%;
+    margin-bottom: 50px;
   }
 
   .image {
-    position: absolute;
-    left: 18%;
-    width: 45vw;
+    position: relative;
+    width: 90vw;
     height: auto;
     margin: 0 40px;
     box-shadow: 14px 14px 60px rgba(0, 0, 0, 0.3);
     transition: box-shadow 250ms ease-in;
     cursor: pointer;
 
+    object-fit: cover;
+
     &:hover {
       box-shadow: 14px 14px 60px rgba(0, 0, 0, 0.4);
     }
+  }
+
+  .image--next,
+  .image--previous {
+    display: none;
   }
 
   .image--next {
@@ -40,11 +48,8 @@
 
   .texts {
     display: flex;
-    width: 25%;
-    padding: 0 10%;
-    padding: unset;
-    padding-left: 10%;
-    margin-top: 50px;
+    width: 100%;
+    padding: 5%;
   }
 
   .text-block {
@@ -65,36 +70,37 @@
 
   .text-block__line {
     height: 5px;
-    min-width: 40px;
+    min-width: 30px;
     min-height: 5px;
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-bottom: 5px;
-    background-color: #C4C4C4;;;
+    margin: 10px 5px 5px 10px;
+    background-color: #C4C4C4;
   }
 
   .text-block__title {
-    margin-bottom: 40px;
-    font-size: 3rem;
-    font-weight: bold;
+    @include title();
+    font-size: 2rem;
+
+    margin-block-end: 20px;
+    margin-block-start: 20px;
   }
 
   .text-block__description {
-    font-size: 1.2rem;
+    width: 70%;
+    font-size: 1rem;
   }
 
   .next-button,
   .previous-button {
     all: unset;
     position: absolute;
-    bottom: calc(0% - 30px);
+    bottom: calc(0% - 25px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
     background: #FFFFFF;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
     border-radius: 13px;
@@ -111,13 +117,13 @@
   }
 
   .previous-button {
-    right: 74%;
+    left: 10%;
   }
 
   .counter {
     position: absolute;
-    right: 17%;
-    bottom: -6%;
+    right: calc(10% + 25px);
+    bottom: calc(0% - 25px);
     color: rgba(31, 31, 31, 0.8);
   }
 }
@@ -129,66 +135,7 @@
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) and (max-width : 1224px) {
-  .normal-gallery {
-    flex-direction: column;;
-  }
-
   .wp-block-cgb-damex-home-gallery {
-    height: unset;
-    padding-bottom: unset;
-    ;
-    .texts {
-      width: 100%;
-      padding: 5%;
-      margin-top: unset;;;
-    }
-
-    .text-block__title {
-      font-size: 2rem;
-
-      margin-block-end: 20px;
-      margin-block-start: 20px;;
-    }
-
-    .text-block__line {
-      width: 10px;
-    }
-
-    .text-block__description {
-      width: 70%;
-      font-size: 1rem;
-    }
-
-    .counter {
-      right: 19%;
-      bottom: -11%;
-    }
-
-    .images {
-      width: 100%;
-      height: fit-content;
-      margin-bottom: 50px;
-    };
-
-    .image {
-      position: relative;
-      right: unset;
-      left: unset;
-      width: 90vw;
-      height: auto;
-      ;
-    }
-
-    .image--next,
-    .image--previous {
-      display: none;
-    }
-
-    .previous-button,
-    .next-button {
-      bottom: calc(0% - 30px);
-    }
-
     .previous-button {
       left: 2%;
     }
@@ -201,134 +148,53 @@
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-  .normal-gallery {
-    flex-direction: column;;
-  }
-
   .wp-block-cgb-damex-home-gallery {
-    height: unset;
-    padding-bottom: unset;
-    ;
-    .texts {
-      width: 100%;
-      padding: 5%;
-      margin-top: unset;;;
-    }
-
-    .text-block__title {
-      font-size: 2rem;
-
-      margin-block-end: 20px;
-      margin-block-start: 20px;;
-    }
-
-    .text-block__line {
-      width: 10px;
-    }
-
-    .text-block__description {
-      width: 70%;
-      font-size: 1rem;
-    }
-
-    .counter {
-      right: 26%;
-      bottom: 8%;
-    }
-
     .images {
       width: 100%;
       height: 60vh;
     };
-
-    .image {
-      position: relative;
-      right: unset;
-      left: unset;
-      width: 90vw;
-      height: auto;
-      ;
-    }
-
-    .image--next,
-    .image--previous {
-      display: none;
-    }
-
-    .previous-button,
-    .next-button {
-      bottom: 12%;
-    }
-
-    .previous-button {
-      right: 78%;
-    }
-
-    .next-button {
-      right: 3%;
-    }
   }
 }
 
-/* Ipads */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-  .wp-block-cgb-damex-home-gallery {
-    padding-top: 0;
-    padding-bottom: 10%;
-
-    .image {
-      left: 10%;
-      width: 90vw;
-      height: auto;
-    }
-
-    .next-button,
-    .previous-button {
-      bottom: -8%;
-    }
-
-    .counter {
-      right: 20%;
-      bottom: -10%;;
-    }
-
-    .next-button {
-      right: 11%;
-    }
-
-    .previous-button {
-      right: 82%;
-    }
-  }
-}
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-  .wp-block-cgb-damex-home-gallery {
-    .image {
-      left: 4%;
-      width: auto;
-      height: 42vh;
-    }
-
-    .next-button,
-    .previous-button {
-      bottom: 7%;
-    }
-
-    .previous-button {
-      right: 85%;
-    }
-  }
-}
-
-/* Desktops and laptops ----------- */
-@media only screen  and (min-width : 1224px) {
+@media only screen and (min-width : 1224px) {
   .wp-block-cgb-damex-home-gallery {
     flex-direction: row;
+    height: 60vh;
+    padding: 10% 0 ;
 
+    .next-button,
+    .previous-button {
+      bottom: calc(0% - 30px);
+      width: 60px;
+      height: 60px;
+      font-size: 2rem;
+    }
+
+    .images {
+      width: 75%;
+    }
 
     .image {
-      height: 60vh;
+      position: absolute;
+      width: 90%;
+      height: 100%;
+    }
+
+    .texts {
+      width: 25%;
+      padding-left: 10%;
+    }
+
+    .text-block__title {
+      font-size: 3rem;
+    }
+
+    .text-block__description {
+      font-size: 1.2rem;
+    }
+
+    .image--previous {
+      display: block;
     }
   }
 }

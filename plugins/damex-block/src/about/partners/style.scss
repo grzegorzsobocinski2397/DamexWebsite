@@ -5,16 +5,11 @@
   padding: 10% 10% 5% 10%;
 
   .anchor {
-    position: relative;
-    top: -250px;
-    display: block;
-    visibility: hidden;
+    @include anchor(-250px);
   }
 
   .title {
-    margin-bottom: 40px;
-    font-size: 3rem;
-    font-weight: bold;;
+    @include title();
   }
 
   .line {
@@ -29,7 +24,6 @@
     justify-content: center;
     padding: 0 5%;
     margin-top: 50px;
-    ;
   }
 
   .partner-link {
@@ -52,11 +46,11 @@
     &:hover {
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
+  }
 
-    img {
-      width: 280px;
-      height: auto;
-    }
+  .partner-link img {
+    width: 280px;
+    height: auto;
   }
 
   .next-button,
@@ -73,7 +67,7 @@
     font-size: 2rem;
     border-radius: 13px;
     transition: background 250ms ease-in;
-    cursor: pointer;;
+    cursor: pointer;
 
     &:hover {
       background: #F8F8F8;
@@ -93,7 +87,6 @@
 @media only screen and (min-width : 321px) and (max-width : 1024px) {
   .wp-block-cgb-damex-about-us-partners {
     margin-top: 50px;
-
 
     .title {
       font-size: 2rem;

@@ -1,4 +1,4 @@
-import { imageSizer } from "../image-sizer";
+import { imageSizer } from "./image-sizer";
 
 /**
  * Class responsible for handling attributes saving/removing/editing.

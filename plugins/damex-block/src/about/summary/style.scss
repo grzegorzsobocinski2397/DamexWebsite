@@ -29,9 +29,7 @@
   }
 
   .text-block__title {
-    margin-bottom: 40px;
-    font-size: 3rem;
-    font-weight: bold;
+    @include title();
   }
 
   .text-block__description {

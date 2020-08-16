@@ -2,9 +2,9 @@
 @import './z-index.scss';
 $menu-item-border: 2px solid $font-default;
 
-#wpadminbar {
-  display: none;
-}
+// #wpadminbar {
+//   display: none;
+// }
 
 
 /* ============================================================ 
@@ -405,7 +405,7 @@ $menu-item-border: 2px solid $font-default;
   }
 
   .header__content {
-    height: 85px;
+    height: 83px;
   }
 
   .logo {

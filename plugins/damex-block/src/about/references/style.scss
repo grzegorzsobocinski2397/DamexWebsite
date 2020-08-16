@@ -1,16 +1,13 @@
 @import '../../mixins.scss';
 
 .wp-block-cgb-damex-about-us-references {
-  height: 90vh;
-  padding: 5% 0;
+  height: unset;
+  padding-bottom: 80px;
   overflow: hidden;
-  background: #F5F5F566;;
+  background: #F5F5F566;
 
   .anchor {
-    position: relative;
-    top: -200px;
-    display: block;
-    visibility: hidden;
+    @include anchor(-200px);
   }
 
   .images {
@@ -25,10 +22,10 @@
 
   .image {
     position: absolute;
-    left: 28%;
-    width: 40%;
+    left: unset;
+    width: auto;
     height: 90%;
-    margin: 0 40px;
+    margin: unset;
     box-shadow: 14px 14px 60px rgba(0, 0, 0, 0.3);
     transition: box-shadow 250ms ease-in;
     cursor: pointer;
@@ -69,6 +66,7 @@
 
   .texts {
     display: flex;
+    flex-direction: column;
     padding: 0 10%;
     margin-top: 50px;
   }
@@ -76,7 +74,7 @@
   .text-block {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     height: 50%;
     margin-right: auto;;
   }
@@ -86,9 +84,8 @@
   }
 
   .text-block__title {
-    margin-bottom: 40px;
-    font-size: 3rem;
-    font-weight: bold;
+    @include title();
+    font-size: 2rem;
 
     margin-block-end: 10px;
     margin-block-start: 10px;
@@ -99,17 +96,19 @@
   }
 
   .traits {
-    width: 30%;
+    width: 100%;
   }
 
   .traits__list {
     margin-left: 0;
     list-style: none;
+
+    padding-inline-start: unset;
   }
 
   .trait {
     padding: 15px 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     i {
       margin-right: 15px;
@@ -117,23 +116,12 @@
   }
 }
 
-
-
 /* Smartphones (landscape) ----------- */
-@media only screen and (min-width : 321px)   and (max-width : 1224px) {
-  .dot-gallery {
-    height: unset;
-    padding-bottom: 80px;;
-  }
-
+@media only screen and (min-width : 321px)   and (max-width : 1224px),
+       only screen and (max-width : 320px) {
   .wp-block-cgb-damex-about-us-references {
     .images {
       height: 60vh;
-    }
-    .image {
-      left: unset;
-      width: auto;
-      margin: unset;
     }
 
     .image--previous {
@@ -142,148 +130,71 @@
 
     .image--next {
       right: -88%;
-    }
-
-    .texts {
-      flex-direction: column;
-    }
-
-    .text-block,
-    .traits {
-      width: 100%;
-    }
-
-    .trait {
-      font-size: 1rem;
-    }
-
-    .traits__list {
-      padding-inline-start: unset;
-    }
-
-    .text-block__title {
-      font-size: 2rem;
     }
   }
 }
 
 @media only screen and (min-width : 321px)and (max-width : 766px) {
   .wp-block-cgb-damex-about-us-references {
-    padding-bottom: 80px;
     .images {
       height: 35vh;
     }
   }
 }
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-  .dot-gallery {
-    height: unset;
-    padding-bottom: 80px;;
-  }
-
-  .wp-block-cgb-damex-about-us-references {
-    .images {
-      height: 60vh;
-    }
-    .image {
-      left: unset;
-      width: auto;
-      margin: unset;
-    }
-
-    .image--previous {
-      left: -88%;
-    }
-
-    .image--next {
-      right: -88%;
-    }
-
-    .texts {
-      flex-direction: column;
-    }
-
-    .text-block,
-    .traits {
-      width: 100%;
-    }
-
-    .trait {
-      font-size: 1rem;
-    }
-
-    .traits__list {
-      padding-inline-start: unset;
-    }
-
-    .text-block__title {
-      font-size: 2rem;
-    }
-  }
-}
-
 
 /* Ipads */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-  .dot-gallery {
-    height: unset;
-    padding-bottom: 80px;;
+  .wp-block-cgb-damex-about-us-references .image--previous {
+    left: -20%;
+    height: 70%;
   }
 
-  .wp-block-cgb-damex-about-us-references {
-    .image {
-      left: unset;
-      width: auto;
-      margin: unset;
-    }
-
-    .image--previous {
-      left: -20%;
-      height: 70%;
-    }
-
-    .image--next {
-      right: -20%;
-      height: 70%;
-    }
-
-    .texts {
-      flex-direction: column;
-    }
-
-    .text-block,
-    .traits {
-      width: 100%;
-    }
-
-    .trait {
-      font-size: 1rem;
-    }
-
-    .traits__list {
-      padding-inline-start: unset;
-    }
-
-    .text-block__title {
-      font-size: 2rem;
-    }
+  .wp-block-cgb-damex-about-us-references .image--next {
+    right: -20%;
+    height: 70%;
   }
 }
 
 
-@media only screen  and (min-width : 1224px) {
+@media only screen and (min-width : 1224px) {
   .wp-block-cgb-damex-about-us-references {
+    height: 90vh;
+    padding: 5% 0;
+
+    .images {
+      height: 70vh;
+    }
+
     .image {
+      width: 40%;
       height: auto;
+      margin: 0 40px;
+    }
+
+    .image--previous,
+    .image--next {
+      width: unset;
+      height: 60%;
     }
 
     .text-block {
       width: 60%;
     }
 
+    .texts {
+      flex-direction: row;
+    }
+
     .traits {
       width: 40%;
+    }
+
+    .trait {
+      font-size: 1.2rem;
+    }
+
+    .text-block__title {
+      font-size: 2rem;
     }
   }
 }
