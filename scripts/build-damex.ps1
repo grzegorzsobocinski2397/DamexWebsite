@@ -6,4 +6,3 @@ echo d | xcopy C:\xampp\htdocs\wp-content\plugins\damex-block\dist C:\xampp\htdo
 Start-Process powershell.exe .\build-theme -wait
 New-Item -Path . -Name "exluded.txt" -ItemType "file" -Value "C:\xampp\htdocs\wp-content\themes\damex\assets\src\node_modules\*"
 echo d | xcopy C:\xampp\htdocs\wp-content\themes\damex  C:\xampp\htdocs\wp-content\output\themes /e /C /H /R /K /O /Y /EXCLUDE:exluded.txt
-cd C:\Users\grzeg\Desktop
