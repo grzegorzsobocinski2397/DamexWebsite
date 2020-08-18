@@ -17,8 +17,6 @@
 
 <body <?php body_class("stretched no-transition"); ?>>
     <div id="wrapper" class="clearfix">
-
-
         <header id="header">
             <div class="header__top-bar">
                 <span class="top-bar__address"><i
