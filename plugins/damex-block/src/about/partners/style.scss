@@ -2,7 +2,9 @@
 
 .wp-block-cgb-damex-about-us-partners {
   position: relative;
-  padding: 10% 10% 5% 10%;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 10%;
 
   .anchor {
     @include anchor(-250px);
@@ -20,8 +22,10 @@
     position: relative;
     display: flex;
     align-items: center;
+    align-self: center;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1200px;
     padding: 0 5%;
     margin-top: 50px;
   }

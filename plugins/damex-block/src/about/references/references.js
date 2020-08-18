@@ -109,15 +109,15 @@ registerBlockType("cgb/damex-about-us-references", {
 		return (
 			<div className="dot-gallery">
 				<a class="anchor" id="referencje"></a>
-				<div class="images">{renderPictures()}</div>
-				<div class="dots">{renderDots()}</div>
-				<div class="texts">
+				<div class="texts texts--padding-bottom">
 					<div class="text-block">
 						<div class="text-block__line"></div>
 						<h1 class="text-block__title">{title}</h1>
 						<span class="text-block__description">{description}</span>
 					</div>
 				</div>
+				<div class="images">{renderPictures()}</div>
+				<div class="dots">{renderDots()}</div>
 			</div>
 		);
 	},

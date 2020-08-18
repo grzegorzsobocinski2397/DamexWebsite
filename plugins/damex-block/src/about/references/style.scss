@@ -1,1 +1,35 @@
 @import '../../common/dot-gallery.scss';
+
+
+.wp-block-cgb-damex-about-us-references {
+  .texts.texts--padding-bottom {
+    padding-bottom: 5%;
+
+    .text-block {
+      width: 100%;
+    }
+  }
+
+  .images .image {
+    left: unset;
+    width: auto;
+  }
+
+
+  @media only screen  and (min-width : 1224px) {
+    .images {
+      .image--next,
+      .image--previous {
+        height: 85%;
+      }
+
+      .image--next {
+        right: 12%;
+      }
+
+      .image--previous {
+        left: 12%;
+      }
+    }
+  }
+}
