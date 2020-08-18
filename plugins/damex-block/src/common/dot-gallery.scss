@@ -2,10 +2,11 @@
 
 
 .dot-gallery {
-  height: 90vh;
-  padding: 5% 0 0 0;
+  height: fit-content;
+  padding: 5% 0;
+  margin-bottom: 5%;
   overflow: hidden;
-  background: #F5F5F566;;
+  background: #F5F5F566;
 
   .images {
     position: relative;
