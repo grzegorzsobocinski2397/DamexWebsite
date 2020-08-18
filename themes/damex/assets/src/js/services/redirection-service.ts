@@ -40,9 +40,7 @@ export class RedirectionService {
   private addPartnersRedirection() {
     const doPartnersExist = document.querySelector(".partner-link") !== null;
     if (doPartnersExist) {
-      document
-        .querySelectorAll(".partner-link")
-        .forEach((partner) => partner.addEventListener("click", this.redirectPartner));
+      document.querySelectorAll(".partner-link").forEach((partner) => partner.addEventListener("click", this.redirectPartner));
     }
   }
 
@@ -50,7 +48,7 @@ export class RedirectionService {
    * Open a new window with partners website.
    */
   private redirectPartner(event: MouseEvent) {
-    window.open((event.target as HTMLAnchorElement).href);
+    location.href = (event.target as HTMLAnchorElement).href;
   }
 
   /**
@@ -110,9 +108,7 @@ export class RedirectionService {
     const galleryButton = document.querySelector(".wp-block-cgb-damex-offer-common button");
     const homeOfferButton = document.querySelector(".wp-block-cgb-block-damex-block button");
 
-    [offerButton, galleryButton, homeOfferButton]
-      .filter((button) => button !== null)
-      .forEach((button) => this.addButtonRedirection(button));
+    [offerButton, galleryButton, homeOfferButton].filter((button) => button !== null).forEach((button) => this.addButtonRedirection(button));
   }
 
   /**
