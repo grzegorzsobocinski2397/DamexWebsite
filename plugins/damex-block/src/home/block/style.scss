@@ -6,7 +6,7 @@
 
   .image-block {
     width: 100vw;
-    height: calc(100vh - 115px);
+    height: calc(100vh - 50px);
 
     object-fit: cover;
   }
@@ -57,6 +57,9 @@
   .wp-block-cgb-block-damex-block {
     background-color: currentColor;
 
+    .image-block {
+      height: calc(100vh - 115px);
+    }
 
     .container {
       right: 10%;
