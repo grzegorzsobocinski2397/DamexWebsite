@@ -75,8 +75,8 @@
   button {
     all: unset;
     position: absolute;
-    right: calc(0% - 10px);
-    bottom: calc(0% - 25px);
+    right: -10px;
+    bottom: -25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,6 +146,8 @@
     }
 
     button {
+      right: -45px;
+      bottom: 15%;
       width: 300px;
       height: 60px;
       font-size: 1.3rem;
