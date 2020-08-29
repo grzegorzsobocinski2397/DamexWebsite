@@ -23,13 +23,11 @@
   }
 
   .text-block__line {
-    @include line;
+    @include line();
   }
 
   .text-block__title {
-    margin-bottom: 40px;
-    font-size: 2rem;
-    font-weight: bold;
+    @include title();
   }
 
   .text-block__description {

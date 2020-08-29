@@ -1,3 +1,5 @@
+@import '../../common/mixins.scss';
+
 .wp-block-cgb-damex-about-us {
   padding: 10% 10%;
 
@@ -8,18 +10,11 @@
   }
 
   .text-block__line {
-    width: 20px;
-    height: 5px;
-    min-height: 5px;
-    margin-bottom: 5px;
-    background-color: #C4C4C4;;
+    @include line();
   }
 
   .text-block__title {
-    margin-top: unset;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    font-weight: bold;
+    @include title();
   }
 
   .text-block__description {

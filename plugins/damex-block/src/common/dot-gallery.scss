@@ -84,6 +84,7 @@
 
   .text-block__title {
     @include title();
+    margin-top: 15px;
   }
 
   .text-block__description {
@@ -165,6 +166,7 @@
     }
   }
 }
+
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
   .dot-gallery {
