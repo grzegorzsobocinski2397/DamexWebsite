@@ -10,18 +10,18 @@
   },
   "author": "https://github.com/grzegorzsobocinski2397",
   "dependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@types/node": "^12.12.14",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@types/node": "^12.12.54",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "swiped-events": "^1.1.0",
-    "webpack": "^4.41.2"
+    "webpack": "^4.44.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.1",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.9.7",
     "webpack-cli": "^3.3.10"
   }
 }
