@@ -10,9 +10,9 @@
     <meta name="Description"
         content="Lakierowanie tworzyw, lakierowanie mebli, efekty specjalne. Lakier, kolory oraz efekty. Kraków.">
 
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
     <?php wp_head(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 </head>
 
 <body <?php body_class("stretched no-transition"); ?>>

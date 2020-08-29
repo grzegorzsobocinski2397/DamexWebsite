@@ -45,9 +45,9 @@
         </div>
     </div>
     <div class="footer__copyright">
-        <?php echo currentYear()?> Damex Ryszard Madej Kraków | Wszelkie prawa zastrzeżone
+        <?php echo currentYear()?> Damex Ryszard Madej Kraków | Wszelkie prawa zastrzeżone | <a href="http://lakiernia-damex.pl/polityka-prywatnosci">Polityka Prywatności</a>
         <a href="<?php echo get_option('facebook_address'); ?>"> <i id="facebook-icon" class="fab fa-facebook-square">
-            </i></a>
+            </i></>
 
     </div>
     <img class="footer-logo" alt="Damex - małe logo"
