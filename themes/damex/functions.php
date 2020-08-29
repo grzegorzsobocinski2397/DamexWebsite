@@ -1,7 +1,5 @@
 <?php 
-
 // Setup
-define("JU_DEV_MODE", false);
 add_filter( "https_local_ssl_verify", "__return_false" );
 add_filter( "https_ssl_verify", "__return_false" );
 
