@@ -3,7 +3,6 @@
 
 function ju_enqueue() {
     $uri = get_theme_file_uri();
-    $ver = JU_DEV_MODE ? time() : false;
 
     wp_register_style("dl_google_fonts", "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" , [], $ver);
     wp_register_style("map-icons", get_template_directory_uri() . "/assets/scss/map.icons.min.scss" , [], $ver);
