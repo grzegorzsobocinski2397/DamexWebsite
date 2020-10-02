@@ -17,13 +17,14 @@
 
 <body <?php body_class("stretched no-transition"); ?>>
     <div id="wrapper" class="clearfix">
+        <div class="top-bar">
+            <div class="top-bar__address"><i class="far fa-envelope top-bar__icon"></i><span
+                    class="top-bar__address-text"><?php echo get_option('mail_address'); ?></span></div>
+            <span class="top-bar__phone-number"><i
+                    class="fas fa-phone top-bar__icon"></i><?php echo get_option('phone_number'); ?></span>
+        </div>
         <header id="header">
-            <div class="header__top-bar">
-                <span class="top-bar__address"><i
-                        class="far fa-envelope top-bar__icon"></i><?php echo get_option('mail_address'); ?></span>
-                <span class="top-bar__phone-number"><i
-                        class="fas fa-phone top-bar__icon"></i><?php echo get_option('phone_number'); ?></span>
-            </div>
+
             <div class="header__content">
 
                 <img class="logo" alt="Damex logo"
@@ -44,7 +45,6 @@ wp_nav_menu([
 }
 
 ?>
-
                 <li class="menu-link menu-link__contact">
                     <a>Kontakt</a>
                     <ul class="sub-menu sub-menu--long">
@@ -92,8 +92,4 @@ wp_nav_menu([
                     </button>
                 </div>
             </div>
-
-
-
-
         </header>

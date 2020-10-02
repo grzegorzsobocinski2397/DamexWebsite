@@ -52,10 +52,10 @@ export class RedirectionService {
   }
 
   /**
-   * Create top bar redirection (above the header) actions.
+   * Create top bar redirection (above the header) actions.`
    */
   private addTopBarRedirection() {
-    const mailAddressElement = document.querySelector(".top-bar__address") as HTMLElement;
+    const mailAddressElement = document.querySelector(".top-bar__address-text") as HTMLElement;
     const phoneNumberElement = document.querySelector(".top-bar__phone-number") as HTMLElement;
 
     this.addEventListener(mailAddressElement, ContactActionType.Mail, mailAddressElement.innerText);

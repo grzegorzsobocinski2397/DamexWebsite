@@ -4,6 +4,7 @@ import { MainGalleryService } from './services/main-gallery-service';
 import { PartnersService } from './services/partners.service';
 import { RedirectionService } from './services/redirection-service';
 import { StandardGalleryService } from './services/standard-gallery-service';
+import { StickyHeaderService } from './services/sticky-header-service';
 
 /**
  * Main part of the application starting all the services to listen to any changes.
@@ -25,11 +26,20 @@ export class App {
     this.initStandardGalleryService();
     this.initDotGallery();
     this.initMainGallery();
-    this.initHamburger()
+    this.initHamburger();
+    this.initializeStickyHeader();
   }
 
   /**
-   * Initialize the hamburger menu service.
+   * Initialize service that handles user scroll and visibility of the header top bar.
+   */
+  private initializeStickyHeader() {
+    const stickyHeaderService = new StickyHeaderService();
+    stickyHeaderService.init();
+  }
+
+  /**
+   * Initialize service that handles hamburger menu icon and actions.
    */
   private initHamburger() {
     const hamburgerMenuService = new HamburgerMenuService();

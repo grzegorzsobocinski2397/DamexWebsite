@@ -12,7 +12,7 @@ $menu-item-border: 2px solid $font-default;
    ============================================================ */
 #header {
   @include z-index(header);
-  position: fixed;
+  position: relative;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,10 @@ $menu-item-border: 2px solid $font-default;
   height: 50px;
   background-color: $white;
   box-shadow: $box-shadow;
+}
+
+#header.header-sticky {
+  position: sticky;
 }
 
 .header__content {
@@ -31,7 +35,7 @@ $menu-item-border: 2px solid $font-default;
 /* ============================================================ 
     Top bar mail address and phone number.
    ============================================================ */
-.header__top-bar {
+.top-bar {
   display: none;
 }
 
@@ -40,7 +44,7 @@ $menu-item-border: 2px solid $font-default;
 }
 
 .top-bar__phone-number,
-.top-bar__address {
+.top-bar__address-text {
   cursor: pointer;
 }
 
@@ -396,7 +400,7 @@ $menu-item-border: 2px solid $font-default;
    ============================================================ */
 @media only screen  and (min-width : 1224px) {
   #header {
-    height: 115px;
+    height: 83px;
   }
 
   #header .menu {
@@ -412,11 +416,11 @@ $menu-item-border: 2px solid $font-default;
     height: 85%;
   }
 
-  .header__top-bar {
+  .top-bar {
     display: flex;
     align-items: center;
     flex: 1;
-    height: 10%;
+    height: 10px;
     padding: 10px;
     font-size: 0.95rem;
     background: $white;
