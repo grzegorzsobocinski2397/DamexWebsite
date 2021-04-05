@@ -26,3 +26,8 @@ themes/index.php
 /themes/damex/assets/src/dist
 /themes/damex/assets/css
 /themes/damex/assets/src/node_modules
+plugins/simple-tags/
+plugins/wp-mail-smtp/
+themes/twentynineteen/
+themes/twentytwenty/
+themes/twentytwentyone/
